@@ -76,9 +76,12 @@ public class JFXHamburger extends VBox {
      *
      * @param animation
      */
+
     public void setAnimation(Transition animation) {
-        this.animation = ((HamburgerTransition) animation).getAnimation(this);
-        this.animation.setRate(-1);
+        if (animation instanceof HamburgerTransition hamburger) {
+            this.animation = hamburger.getAnimation(this);
+            this.animation.setRate(-1);
+        }
     }
 
     private void initStyle(StackPane pane) {
