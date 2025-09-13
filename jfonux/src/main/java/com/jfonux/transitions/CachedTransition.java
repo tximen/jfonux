@@ -40,20 +40,23 @@ public class CachedTransition extends Transition {
     protected ObjectProperty<Timeline> timeline = new SimpleObjectProperty<>();
     private CacheMemento[] mementos = new CacheMemento[0];
 
+    public CachedTransition() {
+        this.node = null;
+    }
+
     public CachedTransition(final Node node, final Timeline timeline) {
         this.node = node;
         this.timeline.set(timeline);
         mementos = node == null ? mementos : new CacheMemento[]{new CacheMemento(node)};
-        statusProperty().addListener(observable -> {
-            switch (getStatus()) {
-                case RUNNING:
-                    starting();
-                    break;
-                default:
-                    stopping();
-                    break;
-            }
-        });
+        statusProperty().addListener(observable -> updateStatusListener());
+    }
+
+    private void updateStatusListener() {
+        if (Status.RUNNING.equals(getStatus())) {
+            starting();
+        } else {
+            stopping();
+        }
     }
 
     public CachedTransition(final Node node, final Timeline timeline, CacheMemento... cacheMomentos) {
