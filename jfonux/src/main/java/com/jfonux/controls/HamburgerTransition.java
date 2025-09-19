@@ -4,6 +4,10 @@ package com.jfonux.controls;
 import com.jfonux.transitions.CachedTransition;
 import javafx.animation.Timeline;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
 import javafx.util.Duration;
@@ -19,8 +23,11 @@ import java.util.function.Function;
  */
 public abstract class HamburgerTransition extends CachedTransition {
 
+    private final BooleanProperty selected;
+
     public HamburgerTransition(JFXHamburger burger, Function<JFXHamburger, Timeline> timelineFunction) {
         super (burger, timelineFunction.apply(burger));
+        this.selected = new SimpleBooleanProperty(false);
         timeline.bind(Bindings.createObjectBinding(() -> timelineFunction.apply(burger),
                 burger.widthProperty(),
                 burger.heightProperty(),
@@ -29,13 +36,18 @@ public abstract class HamburgerTransition extends CachedTransition {
         // reduce the number to increase the shifting , increase number to reduce shifting
         setCycleDuration(Duration.seconds(0.3));
         setDelay(Duration.seconds(0));
-
+        setRate(-1);
     }
 
     public void createRateEvent(MouseEvent event) {
         setRate(getRate() * -1);
         play();
+        this.selected.set(!this.selected.get());
     }
 
+
+    public BooleanProperty selectedProperty() {
+        return selected;
+    }
 }
 

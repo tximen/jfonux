@@ -21,16 +21,17 @@
 
 package com.jfonux.controls;
 
-import javafx.animation.Transition;
-import javafx.beans.DefaultProperty;
 import javafx.beans.NamedArg;
+import javafx.beans.property.BooleanProperty;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-
-import java.util.Locale;
 
 /**
  * the famous animated hamburger icon used in material design
@@ -38,7 +39,6 @@ import java.util.Locale;
  * @author Shadi Shaheen
  * @author Thomas Simon
  */
-//@DefaultProperty(value = "animation")
 public class JFXHamburger extends VBox {
 
     /**
@@ -49,9 +49,8 @@ public class JFXHamburger extends VBox {
      */
     private static final String DEFAULT_STYLE_CLASS = "jfx-hamburger";
 
-    private Transition animation;
-   // private String transitionMode;
-    private HamburgerTransition burgerTask;
+
+    private final HamburgerTransition burgerTask;
 
     /**
      * creates a hamburger icon
@@ -71,10 +70,8 @@ public class JFXHamburger extends VBox {
         this.setFillWidth(false);
         this.setSpacing(4);
         this.burgerTask = burgerTransition(transitionMode);
-        this.burgerTask.setRate(-1);
         this.addEventHandler(MouseEvent.MOUSE_PRESSED, burgerTask::createRateEvent);
     }
-
 
     private HamburgerTransition burgerTransition(BurgerMode transitionMode) {
         return switch (transitionMode) {
@@ -85,8 +82,6 @@ public class JFXHamburger extends VBox {
             case SlideClose -> new HamburgerSlideCloseTransition(this);
         };
     }
-
-
 
     /**
      * create the burger line
@@ -100,32 +95,11 @@ public class JFXHamburger extends VBox {
         return pane;
     }
 
-    public double burgerWidth() {
-       return getChildren().get(0).getLayoutBounds().getWidth();
+    public BooleanProperty selectedProperty() {
+        return this.burgerTask.selectedProperty();
     }
 
 
-    /**
-     * @return the current animation of the hamburger
-     */
-    public Transition getAnimation() {
-        return animation;
-    }
-
-
-    /**
-     * set a specified {@link HamburgerTransition}
-     *
-     * @param animation
-     */
-    /*
-    public void setAnimation(Transition animation) {
-        if (animation instanceof HamburgerTransition hamburger) {
-            this.animation = hamburger.getAnimation(this);
-            this.animation.setRate(-1);
-        }
-    }
-*/
 
 
 }
