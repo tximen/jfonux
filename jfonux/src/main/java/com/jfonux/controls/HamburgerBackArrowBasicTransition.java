@@ -1,6 +1,4 @@
-package com.jfonux.transitions;
-
-import com.jfonux.controls.JFXHamburger;
+package com.jfonux.controls;
 
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
@@ -18,7 +16,7 @@ import javafx.util.Duration;
  * @version 1.0
  * @since 2016-03-09
  */
-public class HamburgerBackArrowBasicTransition  extends CachedTransition implements HamburgerTransition {
+public class HamburgerBackArrowBasicTransition  extends HamburgerTransition {
 
     public HamburgerBackArrowBasicTransition(JFXHamburger burger) {
             super(burger, createTimeline(burger));

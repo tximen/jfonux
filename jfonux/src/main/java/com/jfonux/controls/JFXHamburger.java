@@ -21,47 +21,85 @@
 
 package com.jfonux.controls;
 
-import com.jfonux.transitions.HamburgerTransition;
 import javafx.animation.Transition;
 import javafx.beans.DefaultProperty;
+import javafx.beans.NamedArg;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+
+import java.util.Locale;
 
 /**
  * the famous animated hamburger icon used in material design
  *
  * @author Shadi Shaheen
- * @version 1.0
- * @since 2016-03-09
+ * @author Thomas Simon
  */
 @DefaultProperty(value = "animation")
 public class JFXHamburger extends VBox {
 
     private Transition animation;
+   // private String transitionMode;
+    private HamburgerTransition burgerTask;
 
     /**
      * creates a hamburger icon
      */
-    public JFXHamburger() {
+    public JFXHamburger(@NamedArg("id") String id, @NamedArg("transition") BurgerMode transitionMode) {
+        this (transitionMode);
+        setId(id);
+    }
 
-        StackPane line1 = new StackPane();
-        StackPane line2 = new StackPane();
-        StackPane line3 = new StackPane();
+    /**
+     * creates a hamburger icon
+     */
+    public JFXHamburger(@NamedArg("transition") BurgerMode transitionMode) {
+        System.err.println("trans: " + transitionMode);
+      //  transitionMode = transitionMode;
 
-        initStyle(line1);
-        initStyle(line2);
-        initStyle(line3);
-
-        this.getChildren().add(line1);
-        this.getChildren().add(line2);
-        this.getChildren().add(line3);
-
+        this.getChildren().addAll(createLine(), createLine(), createLine());
         this.getStyleClass().add(DEFAULT_STYLE_CLASS);
         this.setAlignment(Pos.CENTER);
         this.setFillWidth(false);
         this.setSpacing(4);
+        this.burgerTask = burgerTransition(transitionMode);
+        this.burgerTask.setRate(-1);
+        this.addEventHandler(MouseEvent.MOUSE_PRESSED, burgerTask::createRateEvent);
+    }
+
+
+    private HamburgerTransition burgerTransition(BurgerMode transitionMode) {
+        return switch (transitionMode) {
+            case null -> throw new IllegalStateException("transition mode must not be null");
+            case BasicClose -> new HamburgerBasicCloseTransition(this);
+            case BackArrow  -> new HamburgerBackArrowBasicTransition(this);
+            case NextArrow  -> new HamburgerNextArrowBasicTransition(this);
+            case SlideClose -> new HamburgerSlideCloseTransition(this);
+        };
+    }
+
+    private static String lower(String message) {
+        if (message == null) {
+            return "";
+        } else {
+            return message.toLowerCase(Locale.ROOT);
+        }
+    }
+
+
+    /**
+     * create the burger line
+     * @return burger line
+     */
+    private static StackPane createLine() {
+        StackPane pane = new StackPane();
+        pane.setOpacity(1);
+        pane.setPrefSize(30, 4);
+        pane.setBackground(new Background(new BackgroundFill(Color.BLACK, new CornerRadii(5), Insets.EMPTY)));
+        return pane;
     }
 
     /**
@@ -70,6 +108,7 @@ public class JFXHamburger extends VBox {
     public Transition getAnimation() {
         return animation;
     }
+
 
     /**
      * set a specified {@link HamburgerTransition}
@@ -82,12 +121,6 @@ public class JFXHamburger extends VBox {
             this.animation = hamburger.getAnimation(this);
             this.animation.setRate(-1);
         }
-    }
-
-    private void initStyle(StackPane pane) {
-        pane.setOpacity(1);
-        pane.setPrefSize(30, 4);
-        pane.setBackground(new Background(new BackgroundFill(Color.BLACK, new CornerRadii(5), Insets.EMPTY)));
     }
 
     /**
