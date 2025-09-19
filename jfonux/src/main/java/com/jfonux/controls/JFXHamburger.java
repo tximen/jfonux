@@ -38,8 +38,16 @@ import java.util.Locale;
  * @author Shadi Shaheen
  * @author Thomas Simon
  */
-@DefaultProperty(value = "animation")
+//@DefaultProperty(value = "animation")
 public class JFXHamburger extends VBox {
+
+    /**
+     * Initialize the style class to 'jfx-hamburger'.
+     * <p>
+     * This is the selector class from which CSS can be used to style
+     * this control.
+     */
+    private static final String DEFAULT_STYLE_CLASS = "jfx-hamburger";
 
     private Transition animation;
    // private String transitionMode;
@@ -57,9 +65,6 @@ public class JFXHamburger extends VBox {
      * creates a hamburger icon
      */
     public JFXHamburger(@NamedArg("transition") BurgerMode transitionMode) {
-        System.err.println("trans: " + transitionMode);
-      //  transitionMode = transitionMode;
-
         this.getChildren().addAll(createLine(), createLine(), createLine());
         this.getStyleClass().add(DEFAULT_STYLE_CLASS);
         this.setAlignment(Pos.CENTER);
@@ -81,13 +86,6 @@ public class JFXHamburger extends VBox {
         };
     }
 
-    private static String lower(String message) {
-        if (message == null) {
-            return "";
-        } else {
-            return message.toLowerCase(Locale.ROOT);
-        }
-    }
 
 
     /**
@@ -102,6 +100,11 @@ public class JFXHamburger extends VBox {
         return pane;
     }
 
+    public double burgerWidth() {
+       return getChildren().get(0).getLayoutBounds().getWidth();
+    }
+
+
     /**
      * @return the current animation of the hamburger
      */
@@ -115,20 +118,14 @@ public class JFXHamburger extends VBox {
      *
      * @param animation
      */
-
+    /*
     public void setAnimation(Transition animation) {
         if (animation instanceof HamburgerTransition hamburger) {
             this.animation = hamburger.getAnimation(this);
             this.animation.setRate(-1);
         }
     }
+*/
 
-    /**
-     * Initialize the style class to 'jfx-hamburger'.
-     * <p>
-     * This is the selector class from which CSS can be used to style
-     * this control.
-     */
-    private static final String DEFAULT_STYLE_CLASS = "jfx-hamburger";
 
 }

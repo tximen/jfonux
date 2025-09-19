@@ -4,18 +4,12 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.animation.Transition;
-import javafx.beans.binding.Bindings;
-import javafx.scene.layout.Region;
 import javafx.util.Duration;
-
-import java.util.concurrent.Callable;
-import java.util.function.Function;
 
 /**
  * transform {@link JFXHamburger} into right arrow
  *
- * @author Shadi Shaheen
+ * @author Shadi Shaheen, Thomas Simon
  * @version 1.0
  * @since 2016-03-09
  */
@@ -84,10 +78,6 @@ public class HamburgerBackArrowBasicTransition  extends HamburgerTransition {
                             new KeyValue(burger.getChildren().get(2).scaleXProperty(), 0.5, Interpolator.EASE_BOTH)
                     )
             );
-        }
-
-        public Transition getAnimation(JFXHamburger burger) {
-            return new HamburgerBackArrowBasicTransition(burger);
         }
 
     }

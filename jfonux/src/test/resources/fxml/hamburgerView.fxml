@@ -19,7 +19,7 @@
                 <leftItems>
                     <JFXRippler maskType="CIRCLE" style="-fx-ripple-color:WHITE;">
                         <StackPane fx:id="titleBurgerContainer">
-                            <JFXHamburger fx:id="titleBurger" transition="BasicClose">
+                            <JFXHamburger fx:id="titleBurger" transition="SlideClose">
 
                             </JFXHamburger>
                         </StackPane>
