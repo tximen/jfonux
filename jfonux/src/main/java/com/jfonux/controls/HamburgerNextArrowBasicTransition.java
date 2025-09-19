@@ -21,15 +21,7 @@ public class HamburgerNextArrowBasicTransition extends  HamburgerTransition {
 
 
     public HamburgerNextArrowBasicTransition(JFXHamburger burger) {
-        super(burger, createTimeline(burger));
-        timeline.bind(Bindings.createObjectBinding(() -> createTimeline(burger),
-                burger.widthProperty(),
-                burger.heightProperty(),
-                ((Region) burger.getChildren().get(0)).widthProperty(),
-                ((Region) burger.getChildren().get(0)).heightProperty()));
-        // reduce the number to increase the shifting , increase number to reduce shifting
-        setCycleDuration(Duration.seconds(0.3));
-        setDelay(Duration.seconds(0));
+        super(burger, HamburgerNextArrowBasicTransition::createTimeline);
     }
 
     private static Timeline createTimeline(JFXHamburger burger) {

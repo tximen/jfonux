@@ -6,7 +6,7 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.animation.Transition;
 import javafx.beans.binding.Bindings;
-import javafx.scene.input.MouseEvent;
+
 import javafx.scene.layout.Region;
 import javafx.util.Duration;
 
@@ -19,21 +19,9 @@ import javafx.util.Duration;
  */
 public class HamburgerBasicCloseTransition  extends HamburgerTransition {
 
-
-
     public HamburgerBasicCloseTransition(JFXHamburger burger) {
-        super(burger, createTimeline(burger));
-        timeline.bind(Bindings.createObjectBinding(() -> createTimeline(burger),
-                burger.widthProperty(),
-                burger.heightProperty(),
-                ((Region) burger.getChildren().get(0)).widthProperty(),
-                ((Region) burger.getChildren().get(0)).heightProperty()));
-        // reduce the number to increase the shifting , increase number to reduce shifting
-        setCycleDuration(Duration.seconds(0.3));
-        setDelay(Duration.seconds(0));
+        super(burger, HamburgerBasicCloseTransition::createTimeline);
     }
-
-
 
     private static Timeline createTimeline(JFXHamburger burger) {
         double burgerWidth = burger.getChildren().get(0).getLayoutBounds().getWidth();

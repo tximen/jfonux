@@ -9,6 +9,9 @@ import javafx.beans.binding.Bindings;
 import javafx.scene.layout.Region;
 import javafx.util.Duration;
 
+import java.util.concurrent.Callable;
+import java.util.function.Function;
+
 /**
  * transform {@link JFXHamburger} into right arrow
  *
@@ -19,18 +22,10 @@ import javafx.util.Duration;
 public class HamburgerBackArrowBasicTransition  extends HamburgerTransition {
 
     public HamburgerBackArrowBasicTransition(JFXHamburger burger) {
-            super(burger, createTimeline(burger));
-            timeline.bind(Bindings.createObjectBinding(() -> createTimeline(burger),
-                    burger.widthProperty(),
-                    burger.heightProperty(),
-                    ((Region) burger.getChildren().get(0)).widthProperty(),
-                    ((Region) burger.getChildren().get(0)).heightProperty()));
-            // reduce the number to increase the shifting , increase number to reduce shifting
-            setCycleDuration(Duration.seconds(0.3));
-            setDelay(Duration.seconds(0));
-        }
+        super(burger, HamburgerBackArrowBasicTransition::createTimeline);
+    }
 
-        private static Timeline createTimeline(JFXHamburger burger) {
+    private static Timeline createTimeline(JFXHamburger burger) {
             double burgerWidth = burger.getChildren().get(0).getLayoutBounds().getWidth();
             double burgerHeight = burger.getChildren().get(2).getBoundsInParent().getMaxY() - burger.getChildren()
                     .get(0)

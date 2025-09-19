@@ -15,13 +15,7 @@ import javafx.util.Duration;
 public class HamburgerSlideCloseTransition extends HamburgerTransition {
 
     public HamburgerSlideCloseTransition(JFXHamburger burger) {
-        super(burger, createTimeline(burger));
-        timeline.bind(Bindings.createObjectBinding(() -> createTimeline(burger),
-                ((Region) burger.getChildren().get(0)).widthProperty(),
-                ((Region) burger.getChildren().get(0)).heightProperty()));
-        setCycleDuration(Duration.seconds(0.3));
-        setDelay(Duration.seconds(0));
-
+        super(burger, HamburgerSlideCloseTransition::createTimeline);
         setOnFinished((finish) -> {
             if (this.getRate() == 1) {
                 burger.getChildren().get(1).setVisible(false);
