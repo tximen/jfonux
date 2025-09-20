@@ -17,18 +17,11 @@
                 <leftItems>
                     <JFXRippler maskType="CIRCLE" style="-fx-ripple-color:WHITE;">
                         <StackPane fx:id="titleBurgerContainer">
-                            <JFXHamburger fx:id="titleBurger" transition="SlideClose" />
+                            <JFXHamburger fx:id="titleBurger" transition="BasicClose" />
                         </StackPane>
                     </JFXRippler>
                     <Label>Material Design</Label>
                 </leftItems>
-                <rightItems>
-                    <JFXRippler fx:id="optionsRippler" maskType="CIRCLE" style="-fx-ripple-color:WHITE;">
-                        <StackPane fx:id="optionsBurger">
-                            <JFXHamburger styleClass="jfx-options-burger" transition="BasicClose" />
-                        </StackPane>
-                    </JFXRippler>
-                </rightItems>
             </JFXToolbar>
         </VBox>
 

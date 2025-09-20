@@ -54,6 +54,12 @@ public class JFXHamburgerTest {
             sleepSeconds(2);
             Logger.getLogger(JFXHamburgerTest.class.getName()).info("click [%s]".formatted(nodeID));
             robot.clickById(nodeID);
+            sleepSeconds(2);
+            Logger.getLogger(JFXHamburgerTest.class.getName()).info("click [%s]".formatted(nodeID));
+            robot.clickById(nodeID);
+            sleepSeconds(2);
+            Logger.getLogger(JFXHamburgerTest.class.getName()).info("click [%s]".formatted(nodeID));
+            robot.clickById(nodeID);
         }
     }
 }

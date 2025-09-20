@@ -12,12 +12,24 @@ public class HamburgerViewTest {
 
     @Test
     void click_hamburger(FxRobot robot) {
-        sleepSeconds(4);
+        sleepSeconds(1);
         FxAssertions.assertNotVisiblyById("navigationBox");
         robot.clickById("titleBurger" );
-        sleepSeconds(4);
+        sleepSeconds(1);
         FxAssertions.assertVisiblyById("navigationBox");
         robot.clickById("titleBurger" );
+        FxAssertions.assertNotVisiblyById("navigationBox");
+        sleepSeconds(1);
+        robot.clickById("titleBurger" );
+        FxAssertions.assertVisiblyById("navigationBox");
+        robot.clickById("titleBurger" );
+        sleepSeconds(1);
+        FxAssertions.assertNotVisiblyById("navigationBox");
+        robot.clickById("titleBurger" );
+        sleepSeconds(1);
+        FxAssertions.assertVisiblyById("navigationBox");
+        robot.clickById("titleBurger" );
+        sleepSeconds(1);
         FxAssertions.assertNotVisiblyById("navigationBox");
     }
 }
