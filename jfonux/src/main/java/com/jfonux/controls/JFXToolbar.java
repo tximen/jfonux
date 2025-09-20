@@ -37,13 +37,23 @@ import javafx.scene.layout.HBox;
  */
 public class JFXToolbar extends BorderPane {
 
-    private HBox leftBox = new HBox();
-    private HBox rightBox = new HBox();
+    /**
+     * Initialize the style class to 'jfx-tool-bar'.
+     * <p>
+     * This is the selector class from which CSS can be used to style
+     * this control.
+     */
+    private static final String DEFAULT_STYLE_CLASS = "jfx-tool-bar";
+
+    private final HBox leftBox ;
+    private final HBox rightBox ;
 
     /**
      * creates empty tool bar
      */
     public JFXToolbar() {
+        this.leftBox = new HBox();
+        this.rightBox = new HBox();
         initialize();
         this.setLeft(leftBox);
         leftBox.getStyleClass().add("tool-bar-left-box");
@@ -82,13 +92,7 @@ public class JFXToolbar extends BorderPane {
      *                                                                         *
      **************************************************************************/
 
-    /**
-     * Initialize the style class to 'jfx-tool-bar'.
-     * <p>
-     * This is the selector class from which CSS can be used to style
-     * this control.
-     */
-    private static final String DEFAULT_STYLE_CLASS = "jfx-tool-bar";
+
 
     private void initialize() {
         this.getStyleClass().add(DEFAULT_STYLE_CLASS);
