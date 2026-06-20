@@ -21,7 +21,7 @@
 
 package com.jfonux.controls;
 
-import com.jfonux.assets.JFoenixResources;
+import com.jfonux.assets.JFonuxResources;
 import com.jfonux.skins.JFXToggleNodeSkin;
 import javafx.css.converter.BooleanConverter;
 import javafx.css.converter.ColorConverter;
@@ -84,7 +84,7 @@ public class JFXToggleNode extends ToggleButton {
      */
     @Override
     public String getUserAgentStylesheet() {
-        return JFoenixResources.load("css/controls/jfx-toggle-node.css").toExternalForm();
+        return JFonuxResources.load("css/controls/jfx-toggle-node.css").toExternalForm();
     }
 
     /***************************************************************************

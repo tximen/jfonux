@@ -21,7 +21,7 @@
 
 package com.jfonux.controls;
 
-import com.jfonux.assets.JFoenixResources;
+import com.jfonux.assets.JFonuxResources;
 import com.jfonux.cache.CachePolicy;
 import com.jfonux.controls.events.JFXDrawerEvent;
 import com.jfonux.transitions.JFXAnimationTimer;
@@ -1142,7 +1142,7 @@ public class JFXDrawer extends StackPane {
      */
     private static final String DEFAULT_STYLE_CLASS = "jfx-drawer";
 
-    private static final String USER_AGENT_STYLESHEET = JFoenixResources.load("css/controls/jfx-drawer.css").toExternalForm();
+    private static final String USER_AGENT_STYLESHEET = JFonuxResources.load("css/controls/jfx-drawer.css").toExternalForm();
 
     @Override
     public String getUserAgentStylesheet() {

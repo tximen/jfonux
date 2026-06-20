@@ -21,7 +21,7 @@
 
 package com.jfonux.controls;
 
-import com.jfonux.assets.JFoenixResources;
+import com.jfonux.assets.JFonuxResources;
 import com.jfonux.controls.base.IFXLabelFloatControl;
 import com.jfonux.skins.JFXPasswordFieldSkin;
 import com.jfonux.validation.base.ValidatorBase;
@@ -196,5 +196,5 @@ public class JFXPasswordField extends JFXTextField implements IFXLabelFloatContr
      * this control.
      */
     private static final String DEFAULT_STYLE_CLASS = "jfx-password-field";
-    private static final String USER_AGENT_STYLESHEET = JFoenixResources.load("css/controls/jfx-password-field.css").toExternalForm();
+    private static final String USER_AGENT_STYLESHEET = JFonuxResources.load("css/controls/jfx-password-field.css").toExternalForm();
 }

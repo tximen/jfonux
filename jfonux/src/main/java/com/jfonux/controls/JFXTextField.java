@@ -21,7 +21,7 @@
 
 package com.jfonux.controls;
 
-import com.jfonux.assets.JFoenixResources;
+import com.jfonux.assets.JFonuxResources;
 import com.jfonux.controls.base.IFXLabelFloatControl;
 import com.jfonux.skins.JFXTextFieldSkin;
 import com.jfonux.validation.base.ValidatorBase;
@@ -182,7 +182,7 @@ public class JFXTextField extends TextField implements IFXLabelFloatControl {
      * this control.
      */
     private static final String DEFAULT_STYLE_CLASS = "jfx-text-field";
-    private static final String USER_AGENT_STYLESHEET = JFoenixResources.load("css/controls/jfx-text-field.css").toExternalForm();
+    private static final String USER_AGENT_STYLESHEET = JFonuxResources.load("css/controls/jfx-text-field.css").toExternalForm();
 
 
     /**

@@ -21,7 +21,7 @@
 
 package com.jfonux.controls;
 
-import com.jfonux.assets.JFoenixResources;
+import com.jfonux.assets.JFonuxResources;
 import com.jfonux.skins.JFXProgressBarSkin;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -64,7 +64,7 @@ public class JFXProgressBar extends ProgressBar {
      */
     @Override
     public String getUserAgentStylesheet() {
-        return JFoenixResources.load("css/controls/jfx-progress-bar.css").toExternalForm();
+        return JFonuxResources.load("css/controls/jfx-progress-bar.css").toExternalForm();
     }
 
     /**

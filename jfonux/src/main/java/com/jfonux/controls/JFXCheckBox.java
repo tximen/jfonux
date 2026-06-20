@@ -21,7 +21,7 @@
 
 package com.jfonux.controls;
 
-import com.jfonux.assets.JFoenixResources;
+import com.jfonux.assets.JFonuxResources;
 import com.jfonux.skins.JFXCheckBoxSkin;
 import javafx.css.converter.BooleanConverter;
 import javafx.css.converter.PaintConverter;
@@ -102,7 +102,7 @@ public class JFXCheckBox extends CheckBox {
      * this control.
      */
     private static final String DEFAULT_STYLE_CLASS = "jfx-check-box";
-    private static final String USER_AGENT_STYLESHEET = JFoenixResources.load("css/controls/jfx-check-box.css").toExternalForm();
+    private static final String USER_AGENT_STYLESHEET = JFonuxResources.load("css/controls/jfx-check-box.css").toExternalForm();
     /**
      * checkbox color property when selected
      */

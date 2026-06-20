@@ -49,7 +49,6 @@ public class JFXHamburger extends VBox {
      */
     private static final String DEFAULT_STYLE_CLASS = "jfx-hamburger";
 
-
     private final HamburgerTransition burgerTask;
 
     /**
@@ -93,6 +92,10 @@ public class JFXHamburger extends VBox {
         pane.setPrefSize(30, 4);
         pane.setBackground(new Background(new BackgroundFill(Color.BLACK, new CornerRadii(5), Insets.EMPTY)));
         return pane;
+    }
+
+    public void setSelected(boolean selected) {
+        this.burgerTask.setSelected(selected);
     }
 
     public BooleanProperty selectedProperty() {

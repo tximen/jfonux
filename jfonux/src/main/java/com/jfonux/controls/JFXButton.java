@@ -21,7 +21,7 @@
 
 package com.jfonux.controls;
 
-import com.jfonux.assets.JFoenixResources;
+import com.jfonux.assets.JFonuxResources;
 import com.jfonux.converters.ButtonTypeConverter;
 import com.jfonux.skins.JFXButtonSkin;
 import javafx.css.converter.BooleanConverter;
@@ -47,6 +47,15 @@ import java.util.List;
  * @since 2016-03-09
  */
 public class JFXButton extends Button {
+
+    /**
+     * Initialize the style class to 'jfx-button'.
+     * <p>
+     * This is the selector class from which CSS can be used to style
+     * this control.
+     */
+    private static final String DEFAULT_STYLE_CLASS = "jfx-button";
+    private static final String USER_AGENT_STYLESHEET = JFonuxResources.load("css/controls/jfx-button.css").toExternalForm();
 
     /**
      * {@inheritDoc}
@@ -137,14 +146,7 @@ public class JFXButton extends Button {
      *                                                                         *
      **************************************************************************/
 
-    /**
-     * Initialize the style class to 'jfx-button'.
-     * <p>
-     * This is the selector class from which CSS can be used to style
-     * this control.
-     */
-    private static final String DEFAULT_STYLE_CLASS = "jfx-button";
-    private static final String USER_AGENT_STYLESHEET = JFoenixResources.load("css/controls/jfx-button.css").toExternalForm();
+
 
     public enum ButtonType {FLAT, RAISED}
 

@@ -23,6 +23,7 @@
 package com.jfonux.assets;
 
 import java.net.URL;
+import java.util.logging.Logger;
 
 /**
  * A helper class for external modules to load JFoenix resources.
@@ -35,12 +36,18 @@ import java.net.URL;
  * @author yushijinhun
  * @since 2018-06-06
  */
-public final class JFoenixResources {
+public final class JFonuxResources {
+
+    private static final Logger LOGGER = Logger.getLogger("com.jfonux.assets.JFonuxResources");
 
     public static URL load(String path) {
-        return JFoenixResources.class.getResource(path);
+        URL resource = JFonuxResources.class.getResource(path);
+        if (resource == null) {
+            LOGGER.warning(() -> "missing resource %s".formatted(path));
+        }
+        return resource;
     }
 
-    private JFoenixResources() {}
+    private JFonuxResources() {}
 
 }

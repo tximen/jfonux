@@ -45,6 +45,16 @@ public abstract class HamburgerTransition extends CachedTransition {
         this.selected.set(!this.selected.get());
     }
 
+    public void setSelected(boolean selected) {
+        System.out.println("new value: " + selected);
+        System.out.println("old value: " + this.selected.get());
+        if (this.selected.get() ^ selected) {
+            System.out.println("update : " + selected);
+            setRate(getRate() * -1);
+            play();
+            this.selected.set(selected);
+        }
+    }
 
     public BooleanProperty selectedProperty() {
         return selected;

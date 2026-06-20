@@ -21,7 +21,7 @@
 
 package com.jfonux.controls;
 
-import com.jfonux.assets.JFoenixResources;
+import com.jfonux.assets.JFonuxResources;
 import com.jfonux.controls.base.IFXLabelFloatControl;
 import com.jfonux.skins.JFXTextAreaSkin;
 import com.jfonux.validation.base.ValidatorBase;
@@ -140,7 +140,7 @@ public class JFXTextArea extends TextArea implements IFXLabelFloatControl {
      * this control.
      */
     private static final String DEFAULT_STYLE_CLASS = "jfx-text-area";
-    private static final String USER_AGENT_STYLESHEET = JFoenixResources.load("css/controls/jfx-text-area.css").toExternalForm();
+    private static final String USER_AGENT_STYLESHEET = JFonuxResources.load("css/controls/jfx-text-area.css").toExternalForm();
     /**
      * set true to show a float the prompt text when focusing the field
      */

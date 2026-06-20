@@ -21,7 +21,7 @@
 
 package com.jfonux.skins;
 
-import com.jfonux.assets.JFoenixResources;
+import com.jfonux.assets.JFonuxResources;
 import com.jfonux.controls.JFXButton;
 import com.jfonux.controls.JFXDatePicker;
 import com.jfonux.controls.JFXListCell;
@@ -383,7 +383,7 @@ public class JFXDatePickerContent extends VBox {
 
     @Override
     public String getUserAgentStylesheet() {
-        return JFoenixResources.load("css/controls/jfx-date-picker.css").toExternalForm();
+        return JFonuxResources.load("css/controls/jfx-date-picker.css").toExternalForm();
     }
 
     ObjectProperty<YearMonth> displayedYearMonthProperty() {

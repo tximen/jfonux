@@ -27,6 +27,7 @@ import com.jfonux.controls.JFXRippler;
 import com.jfonux.effects.JFXDepthManager;
 import com.jfonux.transitions.CachedTransition;
 import com.jfonux.utils.JFXNodeUtils;
+import com.sun.javafx.scene.control.LabeledText;
 import javafx.scene.control.skin.ButtonSkin;
 import javafx.scene.control.skin.LabelSkin;
 import javafx.animation.Interpolator;
@@ -39,6 +40,7 @@ import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
@@ -140,26 +142,16 @@ public class JFXButtonSkin extends ButtonSkin {
         if (invalid) {
             if (((JFXButton) getSkinnable()).getRipplerFill() == null) {
                 // change rippler fill according to the last LabeledText/Label child
-                for (int i = getChildren().size() - 1; i >= 1; i--) {
-
-      System.err.println("JFXButtonSkin ** possible bug !! ");
-                    System.err.println("?????   child: " + getChildren().get(i));
-      /*
-                    if (getChildren().get(i) instanceof LabeledText) {
-                        buttonRippler.setRipplerFill(((LabeledText) getChildren().get(i)).getFill());
-                        ((LabeledText) getChildren().get(i)).fillProperty()
-                            .addListener((o, oldVal, newVal) -> buttonRippler.setRipplerFill(
-                                newVal));
-                        break;
-                    } else if (getChildren().get(i) instanceof Label) {
-                        buttonRippler.setRipplerFill(((Label) getChildren().get(i)).getTextFill());
-                        ((Label) getChildren().get(i)).textFillProperty()
-                            .addListener((o, oldVal, newVal) -> buttonRippler.setRipplerFill(
-                                newVal));
-                        break;
+                for (Node currentNode :     getChildren()) {
+                    if (currentNode instanceof LabeledText item) {
+                        buttonRippler.setRipplerFill(item.getFill());
+                        item.fillProperty()
+                             .addListener((_, _, newVal) -> buttonRippler.setRipplerFill(newVal));
+                    } else if (currentNode instanceof Label item) {
+                        buttonRippler.setRipplerFill(item.getTextFill());
+                        item.textFillProperty()
+                             .addListener((_, _, newVal) -> buttonRippler.setRipplerFill(newVal));
                     }
-
-       */
                 }
             } else {
                 buttonRippler.setRipplerFill(((JFXButton) getSkinnable()).getRipplerFill());

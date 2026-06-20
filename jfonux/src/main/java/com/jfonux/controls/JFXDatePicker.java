@@ -21,7 +21,7 @@
 
 package com.jfonux.controls;
 
-import com.jfonux.assets.JFoenixResources;
+import com.jfonux.assets.JFonuxResources;
 import com.jfonux.controls.base.IFXValidatableControl;
 import com.jfonux.skins.JFXDatePickerSkin;
 import com.jfonux.validation.base.ValidatorBase;
@@ -95,7 +95,7 @@ public class JFXDatePicker extends DatePicker implements IFXValidatableControl {
      */
     @Override
     public String getUserAgentStylesheet() {
-        return JFoenixResources.load("css/controls/jfx-date-picker.css").toExternalForm();
+        return JFonuxResources.load("css/controls/jfx-date-picker.css").toExternalForm();
     }
 
     /**

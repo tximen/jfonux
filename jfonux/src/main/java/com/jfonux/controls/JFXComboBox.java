@@ -21,7 +21,7 @@
 
 package com.jfonux.controls;
 
-import com.jfonux.assets.JFoenixResources;
+import com.jfonux.assets.JFonuxResources;
 import com.jfonux.controls.base.IFXLabelFloatControl;
 import com.jfonux.converters.base.NodeConverter;
 import com.jfonux.skins.JFXComboBoxListViewSkin;
@@ -112,7 +112,7 @@ public class JFXComboBox<T> extends ComboBox<T> implements IFXLabelFloatControl 
      */
     @Override
     public String getUserAgentStylesheet() {
-        return JFoenixResources.load("css/controls/jfx-combo-box.css").toExternalForm();
+        return JFonuxResources.load("css/controls/jfx-combo-box.css").toExternalForm();
     }
 
     /**

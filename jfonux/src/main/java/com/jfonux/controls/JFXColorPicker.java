@@ -21,7 +21,7 @@
 
 package com.jfonux.controls;
 
-import com.jfonux.assets.JFoenixResources;
+import com.jfonux.assets.JFonuxResources;
 import com.jfonux.skins.JFXColorPickerSkin;
 import javafx.css.converter.BooleanConverter;
 import javafx.css.CssMetaData;
@@ -73,7 +73,7 @@ public class JFXColorPicker extends ColorPicker {
      */
     @Override
     public String getUserAgentStylesheet() {
-        return JFoenixResources.load("css/controls/jfx-color-picker.css").toExternalForm();
+        return JFonuxResources.load("css/controls/jfx-color-picker.css").toExternalForm();
     }
 
 

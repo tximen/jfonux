@@ -21,7 +21,7 @@
 
 package com.jfonux.controls;
 
-import com.jfonux.assets.JFoenixResources;
+import com.jfonux.assets.JFonuxResources;
 import com.jfonux.skins.JFXToggleButtonSkin;
 import javafx.css.converter.BooleanConverter;
 import javafx.css.converter.PaintConverter;
@@ -100,7 +100,7 @@ public class JFXToggleButton extends ToggleButton {
      */
     @Override
     public String getUserAgentStylesheet() {
-        return JFoenixResources.load("css/controls/jfx-toggle-button.css").toExternalForm();
+        return JFonuxResources.load("css/controls/jfx-toggle-button.css").toExternalForm();
     }
 
 

@@ -21,7 +21,7 @@
 
 package com.jfonux.controls;
 
-import com.jfonux.assets.JFoenixResources;
+import com.jfonux.assets.JFonuxResources;
 import com.jfonux.controls.datamodels.treetable.RecursiveTreeObject;
 import com.jfonux.skins.JFXTreeTableViewSkin;
 import com.jfonux.utils.JFXUtilities;
@@ -135,7 +135,7 @@ public class JFXTreeTableView<S extends RecursiveTreeObject<S>> extends TreeTabl
 
     private static final String DEFAULT_STYLE_CLASS = "jfx-tree-table-view";
 
-    private static final String USER_AGENT_STYLESHEET = JFoenixResources.load("css/controls/jfx-tree-table-view.css").toExternalForm();
+    private static final String USER_AGENT_STYLESHEET = JFonuxResources.load("css/controls/jfx-tree-table-view.css").toExternalForm();
 
     /**
      * {@inheritDoc}

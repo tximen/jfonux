@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 import static com.jfx4test.framework.util.WaitForAsyncUtils.sleepSeconds;
 
 
-@ApplicationTest(delayInSeconds = 2)
+@ApplicationTest
 public class JFXHamburgerTest {
 
     @Start

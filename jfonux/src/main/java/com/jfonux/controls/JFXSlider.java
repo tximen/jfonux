@@ -21,7 +21,7 @@
 
 package com.jfonux.controls;
 
-import com.jfonux.assets.JFoenixResources;
+import com.jfonux.assets.JFonuxResources;
 import com.jfonux.converters.IndicatorPositionConverter;
 import com.jfonux.skins.JFXSliderSkin;
 import javafx.beans.binding.StringBinding;
@@ -74,7 +74,7 @@ public class JFXSlider extends Slider {
      */
     @Override
     public String getUserAgentStylesheet() {
-        return JFoenixResources.load("css/controls/jfx-slider.css").toExternalForm();
+        return JFonuxResources.load("css/controls/jfx-slider.css").toExternalForm();
     }
 
     private void initialize() {

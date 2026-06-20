@@ -21,7 +21,7 @@
 
 package com.jfonux.controls;
 
-import com.jfonux.assets.JFoenixResources;
+import com.jfonux.assets.JFonuxResources;
 import com.jfonux.svg.SVGGlyph;
 import com.jfonux.utils.JFXNodeUtils;
 import javafx.css.converter.SizeConverter;
@@ -140,7 +140,7 @@ public class JFXTreeViewPath extends ScrollPane {
      */
     @Override
     public String getUserAgentStylesheet() {
-        return JFoenixResources.load("css/controls/jfx-tree-view-path.css").toExternalForm();
+        return JFonuxResources.load("css/controls/jfx-tree-view-path.css").toExternalForm();
     }
 
     @Override

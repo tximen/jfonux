@@ -21,7 +21,7 @@
 
 package com.jfonux.controls;
 
-import com.jfonux.assets.JFoenixResources;
+import com.jfonux.assets.JFonuxResources;
 import com.jfonux.skins.JFXSpinnerSkin;
 import javafx.css.converter.SizeConverter;
 import javafx.css.CssMetaData;
@@ -70,7 +70,7 @@ public class JFXSpinner extends ProgressIndicator {
      */
     @Override
     public String getUserAgentStylesheet() {
-        return JFoenixResources.load("css/controls/jfx-spinner.css").toExternalForm();
+        return JFonuxResources.load("css/controls/jfx-spinner.css").toExternalForm();
     }
 
     /***************************************************************************
