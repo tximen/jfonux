@@ -8,8 +8,8 @@
   <name>parent-project</name>
   
  <properties>
-      <java.version>25</java.version>
-      <javafx.version>25-ea+20</javafx.version>
+      <java.version>27</java.version>
+      <javafx.version>27-ea+20</javafx.version>
   </properties>
 
   <modules>
